@@ -1,0 +1,42 @@
+@charset "utf-8";
+/* CSS Document */
+
+
+h1{
+	font-family:Arial, Helvetica, sans-serif;
+	font-size:18px;
+}
+
+input[type=text] ,input[type=password]{
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    resize: vertical;
+}
+
+
+
+input[type=submit] ,input[type=reset] {
+    background-color:#009;
+    color: white;
+    padding: 12px 25px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    float: left;
+}
+
+
+
+input[type=submit]:hover {
+    background-color:#03F;
+}
+
+select
+{
+	width:100%;
+	padding:8px;
+}
+

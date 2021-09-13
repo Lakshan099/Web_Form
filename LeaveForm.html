@@ -1,0 +1,129 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Untitled Document</title>
+<link rel="stylesheet" href="FormStyle.css">
+<script>
+//Task 03
+function validateEmployeeNumber()
+{
+	var empno = document.getElementById("txtEmployeeNumber").value;
+	
+	var p1 = empno.substring(0,3);
+	var n1 = empno.substring(3,5);
+	var arr = empno.split('_');
+	
+	if((p1 == "EMP") && (!isNaN(n1)) && (!isNaN(arr[1])) && (!isNaN(arr[2])) && (arr[1].length == 2) && (arr[2].length == 2) )
+		{
+			alert("correct");
+			return true;
+		}
+	alert("Plese enter valid format");
+	return false;
+}
+	
+//Taks 04
+function validateDepartment()
+{
+		if((document.getElementById("rdoDepartment_0").checked) || (document.getElementById("rdoDepartment_1").checked))
+			{
+				return true;
+			}
+		alert("Please select department");
+		return false;
+}
+	
+//Task 5
+function validateLeveType()
+{
+	var type = document.getElementById("lstType").value;
+	if(type == "……………………")
+		{
+			alert("select correct level type");
+			return false;
+		}
+	return true;
+}
+	// Task 6
+	function validateContact()
+	{
+		var contact = document.getElementById("txtContact").value;
+		if((isNaN(contact)) || (contact.length!=10))
+			{
+				alert("plese enter valind number");
+				return false;
+			}
+				return true;
+	}
+	
+	//Task 7
+	function ValidateAll()
+	{
+		if(validateEmployeeNumber() && validateDepartment() && validateLeveType() && validateContact())
+		{
+				alert("Leave applid sucess");
+		}
+		else
+		{
+			event.preventDefault();
+		}
+	}
+	
+	
+</script>
+</head>
+
+<body>
+<form id="form1" name="form1" method="post">
+  <table width="449" height="448" border="0">
+    <tbody>
+      <tr>
+        <td colspan="2"> <h1>Leave Application Form</h1></td>
+      </tr>
+      <tr>
+        <td width="196">Employee Number</td>
+        <td width="237"><input type="text" name="txtEmployeeNumber" id="txtEmployeeNumber"></td>
+      </tr>
+      <tr>
+        <td>Department</td>
+        <td><p>
+			<lable>
+			  <input type="radio" name="rdoDepartment" id="rdoDepartment_0" value="Coustermer Service">Coustermer Service
+            </lable>
+			<br>
+			<lable>
+			  <input type="radio" name="rdoDepartment" id="rdoDepartment_1" value="System Support">System Support
+            </lable>
+			</p></td>
+      </tr>
+      <tr>
+        <td>Date of Commencing Leave</td>
+        <td><input type="date" name="txtDate" id="txtDate" min="2020-01-01"></td>
+      </tr>
+      <tr>
+        <td>Leave Type</td>
+        <td><select name="lstType" id="lstType">
+			<option value="1" selected>……………………</option>       
+			<option value="2">Annual</option>  
+			<option value="3">Casual</option>  
+        </select></td>
+      </tr>
+      <tr>
+        <td>Number of Days</td>
+        <td><input type="number" name="txtNumberofDays" id="txtNumberofDays" min="1" max="3"></td>
+      </tr>
+      <tr>
+        <td>Contact Number</td>
+        <td><input type="text" name="txtContact" id="txtContact"></td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td><input type="submit" name="btnSubmit" id="btnSubmit" value="Submit" onClick="ValidateAll()">
+          <input type="reset" name="btnReset" id="btnReset" value="Reset"></td>
+      </tr>
+    </tbody>
+  </table>
+</form>
+</body>
+</html>
